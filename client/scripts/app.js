@@ -21,7 +21,17 @@ var App = {
     Parse.readAll((data) => {
       // examine the response from the server request:
       console.log(data);
-
+      
+      Messages.results = [...data.results];
+      for (var element of Messages.results) {
+        if (Rooms[element.roomname] === undefined) {
+          Rooms[element.roomname] = [];
+          Rooms[element.roomname].push(element);
+        } else {
+          Rooms[element.roomname].push(element);
+        }
+      }
+      MessagesView.render(Messages.results);
       callback();
     });
   },
