@@ -35,6 +35,7 @@ var App = {
       _.each(Messages.results, function(message) {
         MessagesView.renderMessage(message);
       });
+      RoomsView.render(Rooms);
 
       callback();
     });
