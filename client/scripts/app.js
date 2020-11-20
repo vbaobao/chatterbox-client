@@ -3,6 +3,7 @@ var App = {
   $spinner: $('.spinner img'),
 
   username: 'anonymous',
+  currentRoom: '',
 
   initialize: function() {
     App.username = window.location.search.substr(10);
@@ -35,7 +36,7 @@ var App = {
       _.each(Messages.results, function(message) {
         MessagesView.renderMessage(message);
       });
-      RoomsView.render(Rooms);
+      RoomsView.renderRoom(Object.keys(Rooms));
 
       callback();
     });
