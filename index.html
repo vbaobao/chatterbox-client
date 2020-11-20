@@ -27,8 +27,11 @@
       <div class="spinner"><img src="client/images/spiffygif_46x46.gif"></div>
       <div id="rooms">
         Room:
-        <select></select>
+        <select>
+          <option value="addRoom">Add room...</option>
+        </select>
         <button>Add Room</button>
+        <input type="text" id="addNewRoom" hidden placeholder="Add new room..."></input>
       </div>
       <form action="#" id="send" method="post">
         <input type="text" name="message" id="message"/>

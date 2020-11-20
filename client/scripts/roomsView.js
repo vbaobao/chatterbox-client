@@ -19,7 +19,11 @@ var RoomsView = {
 
   // roomName is string
   renderRoom: function(roomName) {
+    _.each(Rooms[roomName], function(message) {
+      MessagesView.renderMessage(message);
+    });
 
+    RoomsView.$select.append(`<option val="${roomName}">${roomName}</option>`);
   }
 
 };
