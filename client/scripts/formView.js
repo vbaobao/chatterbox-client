@@ -9,8 +9,23 @@ var FormView = {
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
     event.preventDefault();
-    
     console.log('click!');
+
+    let message = {
+      username: App.username,
+      text: $('#message').val(),
+      roomname: 'Lobby'
+    };
+
+    let formSuccess = function() {
+      $('#message').val('');
+      //RoomsView.render();
+
+    };
+
+    // Come back here to figure how to render for current room
+
+    Parse.create(message, formSuccess);
   },
 
   setStatus: function(active) {
