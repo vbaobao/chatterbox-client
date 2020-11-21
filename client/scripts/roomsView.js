@@ -10,9 +10,19 @@ var RoomsView = {
 
     RoomsView.$button.on('click', function() {
       let newRoomName = window.prompt('What would you like to call your chat room?');
-      Rooms.add(newRoomName);
+
+      var message = new Backbone.Model({
+        message: newRoomName
+      });
+
+      var test = message.escape('message');
+      console.log('what does message return', test);
+      // Rooms.add(newRoomName);
     });
   },
+
+
+
 
 
 
