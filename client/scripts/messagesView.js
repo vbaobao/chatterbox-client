@@ -15,6 +15,7 @@ var MessagesView = {
 
   renderMessage: function(data) {
     MessagesView.$chats.append(MessageView.render(data));
+    Friends.initialize();
   },
 
   clearChat: function() {

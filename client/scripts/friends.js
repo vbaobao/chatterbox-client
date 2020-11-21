@@ -2,10 +2,12 @@ var Friends = {
   friendsList: [],
 
   initialize: function() {
-    $('#chats').on('click', '.username', Friends.toggleStatus);
+    // $('#chats').on('click', '.username', Friends.toggleStatus);
+    $('.username').on('click', Friends.toggleStatus);
   },
 
   toggleStatus: function() {
+    console.log('IS CALLED');
     let newFriendUsername = this.outerText;
     Friends.friendsList.push(newFriendUsername);
     Friends.render(newFriendUsername);
