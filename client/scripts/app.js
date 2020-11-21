@@ -19,9 +19,10 @@ var App = {
   },
 
   fetch: function(callback = ()=>{}) {
+    Rooms = {};
+    $('select').empty();
+
     Parse.readAll((data) => {
-      // examine the response from the server request:
-      console.log(data);
 
       Messages.results = [...data.results];
       for (var element of Messages.results) {
@@ -32,12 +33,8 @@ var App = {
           Rooms[element.roomname].push(element);
         }
       }
-      // MessagesView.render(Messages.results);
-      // _.each(Messages.results, function(message) {
-      //   MessagesView.renderMessage(message);
-      // });
 
-      for ( let roomName of Object.keys(Rooms)) {
+      for (let roomName of Object.keys(Rooms)) {
         RoomsView.renderRoom(roomName);
       }
 

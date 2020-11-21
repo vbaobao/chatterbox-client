@@ -9,7 +9,6 @@ var FormView = {
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
     event.preventDefault();
-    console.log('click!');
 
     let message = {
       username: App.username,
@@ -19,10 +18,9 @@ var FormView = {
 
     let formSuccess = function() {
       $('#message').val('');
+      // to handle lag in fetching data, must have render be successCB
       App.fetch(function() { RoomsView.render(App.currentRoom); });
     };
-
-    // Come back here to figure how to render for current room
 
     Parse.create(message, formSuccess);
   },
