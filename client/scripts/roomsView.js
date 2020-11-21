@@ -5,30 +5,28 @@ var RoomsView = {
 
   initialize: function() {
     RoomsView.$select.change(function() {
-      RoomsView.render($(this).val());
+      // Add backbone escape here! might be reading $(this).val() as script within nameOfRoom
+      var nameOfRoom = $(this).val();
+      RoomsView.render(nameOfRoom);
+      App.currentRoom = nameOfRoom;
     });
 
     RoomsView.$button.on('click', function() {
       let newRoomName = window.prompt('What would you like to call your chat room?');
 
-      var message = new Backbone.Model({
+      var escapedBackboneObject = new Backbone.Model({
         message: newRoomName
       });
 
-      var test = message.escape('message');
-      console.log('what does message return', test);
-      // Rooms.add(newRoomName);
+      var escapedRoomName = escapedBackboneObject.escape('message');
+      Rooms.add(escapedRoomName);
     });
   },
-
-
-
-
-
 
   // renders the roomview
   render: function(room) {
     MessagesView.clearChat();
+    console.log('what is in the Rooms object', Rooms[room]);
     _.each(Rooms[room], function(message) {
       MessagesView.renderMessage(message);
     });

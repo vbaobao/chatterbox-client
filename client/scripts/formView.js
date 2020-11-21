@@ -19,7 +19,7 @@ var FormView = {
 
     let formSuccess = function() {
       $('#message').val('');
-      //RoomsView.render();
+      RoomsView.render(App.currentRoom);
 
     };
 
