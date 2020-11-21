@@ -8,7 +8,15 @@ var RoomsView = {
       RoomsView.render($(this).val());
     });
 
-    RoomsView.$button.on();
+    RoomsView.$button.on('click', function() {
+      let newRoomName = window.prompt('What would you like to call your chat room?');
+
+      if (newRoomName !== null) {
+        App.currentRoom = newRoomName;
+        RoomsView.renderRoom(newRoomName);
+        RoomsView.render(newRoomName);
+      }
+    });
   },
 
   // renders the roomview
@@ -22,10 +30,6 @@ var RoomsView = {
 
   // generates drop down list to select room
   renderRoom: function(roomName) {
-    //switch to render
-    // _.each(Rooms[roomName], function(message) {
-    //   MessagesView.renderMessage(message);
-    // });
 
     RoomsView.$select.append(`<option val="${roomName}">${roomName}</option>`);
   }

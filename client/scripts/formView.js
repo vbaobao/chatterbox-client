@@ -14,7 +14,7 @@ var FormView = {
     let message = {
       username: App.username,
       text: $('#message').val(),
-      roomname: 'Lobby'
+      roomname: App.currentRoom
     };
 
     let formSuccess = function() {
