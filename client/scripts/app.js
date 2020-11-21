@@ -19,7 +19,7 @@ var App = {
   },
 
   fetch: function(callback = ()=>{}) {
-    Rooms = {};
+
     $('select').empty();
 
     Parse.readAll((data) => {
@@ -30,7 +30,10 @@ var App = {
           Rooms[element.roomname] = [];
           Rooms[element.roomname].push(element);
         } else {
-          Rooms[element.roomname].push(element);
+          if (!Rooms[element.roomname].includes(element)) {
+            Rooms[element.roomname].push(element);
+          }
+
         }
       }
 
