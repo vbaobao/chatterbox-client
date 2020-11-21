@@ -22,7 +22,7 @@ var RoomsView = {
     _.each(Rooms[room], function(message) {
       MessagesView.renderMessage(message);
     });
-
+    Friends.initialize();
   },
 
   // generates drop down list to select room

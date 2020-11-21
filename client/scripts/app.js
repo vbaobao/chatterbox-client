@@ -33,9 +33,9 @@ var App = {
         }
       }
       // MessagesView.render(Messages.results);
-      _.each(Messages.results, function(message) {
-        MessagesView.renderMessage(message);
-      });
+      // _.each(Messages.results, function(message) {
+      //   MessagesView.renderMessage(message);
+      // });
 
       for ( let roomName of Object.keys(Rooms)) {
         RoomsView.renderRoom(roomName);
