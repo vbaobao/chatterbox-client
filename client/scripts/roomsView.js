@@ -7,6 +7,7 @@ var RoomsView = {
     RoomsView.$select.change(function() {
       // Add backbone escape here! might be reading $(this).val() as script within nameOfRoom
       var nameOfRoom = $(this).val();
+
       RoomsView.render(nameOfRoom);
       App.currentRoom = nameOfRoom;
     });
@@ -35,7 +36,14 @@ var RoomsView = {
   // generates drop down list to select room
   renderRoom: function(roomName) {
 
-    RoomsView.$select.append(`<option val="${roomName}">${roomName}</option>`);
+    var escapedBackboneObject = new Backbone.Model({
+      message: roomName
+    });
+
+    var escapedRoomName = escapedBackboneObject.escape('message');
+
+    RoomsView.$select.append(`<option val="${escapedRoomName}">${escapedRoomName}</option>`);
+
   }
 
 };

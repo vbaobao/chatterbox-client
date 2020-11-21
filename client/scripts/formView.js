@@ -19,8 +19,7 @@ var FormView = {
 
     let formSuccess = function() {
       $('#message').val('');
-      RoomsView.render(App.currentRoom);
-
+      App.fetch(function() { RoomsView.render(App.currentRoom); });
     };
 
     // Come back here to figure how to render for current room
