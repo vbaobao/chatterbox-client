@@ -36,7 +36,10 @@ var App = {
       _.each(Messages.results, function(message) {
         MessagesView.renderMessage(message);
       });
-      RoomsView.renderRoom(Object.keys(Rooms));
+
+      for ( let roomName of Object.keys(Rooms)) {
+        RoomsView.renderRoom(roomName);
+      }
 
       callback();
     });

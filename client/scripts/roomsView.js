@@ -5,24 +5,22 @@ var RoomsView = {
 
   initialize: function() {
     RoomsView.$select.change(function() {
-      RoomsView.renderRoom($(this).val());
+      RoomsView.render($(this).val());
     });
 
     RoomsView.$button.on();
   },
 
-  // room is object
+  // renders the roomview
   render: function(room) {
-    //Switch to renderrooms
-    var html = '';
-    for (let roomName of Object.keys(room)) {
-      html += `<option val="${roomName}">${roomName}</option>`;
-    }
+    MessagesView.clearChat();
+    _.each(Rooms[room], function(message) {
+      MessagesView.renderMessage(message);
+    });
 
-    RoomsView.$select.append(html);
   },
 
-  // roomName is string
+  // generates drop down list to select room
   renderRoom: function(roomName) {
     //switch to render
     // _.each(Rooms[roomName], function(message) {

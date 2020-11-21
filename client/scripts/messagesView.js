@@ -15,6 +15,10 @@ var MessagesView = {
 
   renderMessage: function(data) {
     MessagesView.$chats.append(MessageView.render(data));
+  },
+
+  clearChat: function() {
+    MessagesView.$chats.text('');
   }
 
 };
